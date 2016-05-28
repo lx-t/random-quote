@@ -1,7 +1,9 @@
 from flask import Flask, jsonify
+from flask.ext.cors import CORS
 import sqlite3
 
 app = Flask(__name__)
+cors = CORS(app)
 
 empty_database_quote = {
     "quote": "Well what do you know? I ran out of piggies.",
@@ -25,4 +27,4 @@ def get_random_quote(path):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(debug=True)
